@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import {
   Bell,
   Phone,
@@ -120,8 +121,11 @@ const DashboardOverview = () => {
         {stats.map((stat, index) => {
           const Icon = stat.icon;
           return (
-            <div
+            <motion.div
               key={index}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.3, delay: index * 0.1 }}
               className="p-6 flex items-start justify-between"
               style={{
                 boxSizing: "border-box",
@@ -155,13 +159,16 @@ const DashboardOverview = () => {
               >
                 <Icon size={24} className="text-white" />
               </div>
-            </div>
+            </motion.div>
           );
         })}
       </div>
 
       {/* Chart Section */}
-      <div
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.3, delay: 0.6 }}
         style={{
           width: "100%",
           height: "426px",
@@ -276,12 +283,15 @@ const DashboardOverview = () => {
             />
           </AreaChart>
         </ResponsiveContainer>
-      </div>
+      </motion.div>
 
       {/* Bottom Section - Recent Activity & Top Repair Requests */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-6">
         {/* Recent Activity */}
-        <div
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.3, delay: 0.7 }}
           style={{
             padding: "25px",
             boxSizing: "border-box",
@@ -293,7 +303,10 @@ const DashboardOverview = () => {
             Recent Activity
           </h2>
           <div className="flex flex-col gap-3">
-            <div
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.3, delay: 0.8 }}
               className="flex items-start gap-3 p-3"
               style={{
                 boxSizing: "border-box",
@@ -309,8 +322,11 @@ const DashboardOverview = () => {
                 </p>
                 <p className="text-gray-500 text-xs mt-1">2 min ago</p>
               </div>
-            </div>
-            <div
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.3, delay: 0.9 }}
               className="flex items-start gap-3 p-3"
               style={{
                 boxSizing: "border-box",
@@ -326,8 +342,11 @@ const DashboardOverview = () => {
                 </p>
                 <p className="text-gray-500 text-xs mt-1">5 min ago</p>
               </div>
-            </div>
-            <div
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.3, delay: 1.0 }}
               className="flex items-start gap-3 p-3"
               style={{
                 boxSizing: "border-box",
@@ -343,8 +362,11 @@ const DashboardOverview = () => {
                 </p>
                 <p className="text-gray-500 text-xs mt-1">8 min ago</p>
               </div>
-            </div>
-            <div
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.3, delay: 1.1 }}
               className="flex items-start gap-3 p-3"
               style={{
                 boxSizing: "border-box",
@@ -360,12 +382,15 @@ const DashboardOverview = () => {
                 </p>
                 <p className="text-gray-500 text-xs mt-1">15 min ago</p>
               </div>
-            </div>
+            </motion.div>
           </div>
-        </div>
+        </motion.div>
 
         {/* Top Repair Requests */}
-        <div
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.3, delay: 0.7 }}
           style={{
             padding: "25px",
             boxSizing: "border-box",
@@ -377,7 +402,11 @@ const DashboardOverview = () => {
             Top Repair Requests
           </h2>
           <div className="flex flex-col gap-5">
-            <div>
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.3, delay: 0.8 }}
+            >
               <div className="flex justify-between items-center mb-2">
                 <p className="text-gray-300 text-sm">Screen Repair</p>
                 <p className="text-gray-400 text-sm">156 requests</p>
@@ -388,8 +417,12 @@ const DashboardOverview = () => {
                   style={{ width: "85%" }}
                 ></div>
               </div>
-            </div>
-            <div>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.3, delay: 0.9 }}
+            >
               <div className="flex justify-between items-center mb-2">
                 <p className="text-gray-300 text-sm">Battery Replacement</p>
                 <p className="text-gray-400 text-sm">89 requests</p>
@@ -400,8 +433,12 @@ const DashboardOverview = () => {
                   style={{ width: "48%" }}
                 ></div>
               </div>
-            </div>
-            <div>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.3, delay: 1.0 }}
+            >
               <div className="flex justify-between items-center mb-2">
                 <p className="text-gray-300 text-sm">Back Glass Repair</p>
                 <p className="text-gray-400 text-sm">67 requests</p>
@@ -412,8 +449,12 @@ const DashboardOverview = () => {
                   style={{ width: "36%" }}
                 ></div>
               </div>
-            </div>
-            <div>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.3, delay: 1.1 }}
+            >
               <div className="flex justify-between items-center mb-2">
                 <p className="text-gray-300 text-sm">Software Issues</p>
                 <p className="text-gray-400 text-sm">45 requests</p>
@@ -424,9 +465,9 @@ const DashboardOverview = () => {
                   style={{ width: "24%" }}
                 ></div>
               </div>
-            </div>
+            </motion.div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </div>
   );

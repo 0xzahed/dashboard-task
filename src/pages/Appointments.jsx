@@ -111,14 +111,14 @@ const appointmentsData = [
 
 function AppointmentStats() {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+    <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6">
       {statsData.map((stat, index) => (
         <motion.div
           key={stat.id}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3, delay: index * 0.1 }}
-          className="p-5 rounded-2xl"
+          className="p-4 sm:p-5 rounded-2xl"
           style={{
             background: "rgba(15, 23, 43, 0.5)",
             border: "1px solid rgba(43, 127, 255, 0.2)",
@@ -128,7 +128,7 @@ function AppointmentStats() {
             <stat.icon size={18} style={{ color: stat.iconColor }} />
             <p className="text-slate-400 text-sm">{stat.title}</p>
           </div>
-          <p className="text-3xl text-white mb-1">{stat.value}</p>
+          <p className="text-2xl sm:text-3xl text-white mb-1">{stat.value}</p>
           <p className="text-sm" style={{ color: stat.subtitleColor }}>
             {stat.subtitle}
           </p>
@@ -153,16 +153,18 @@ function BookingLink() {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.3, delay: 0.3 }}
-      className="p-5 rounded-2xl"
+      className="p-4 sm:p-5 rounded-2xl"
       style={{
         background: "rgba(15, 23, 43, 0.5)",
       }}
     >
-      <p className="text-white mb-4">Booking Link</p>
+      <p className="text-white mb-3 sm:mb-4 text-sm sm:text-base">
+        Booking Link
+      </p>
 
-      <div className="flex items-center gap-3">
+      <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
         <div
-          className="flex-1 px-4 py-3 rounded-xl text-slate-300 text-sm"
+          className="flex-1 px-3 sm:px-4 py-2 sm:py-3 rounded-xl text-slate-300 text-xs sm:text-sm break-all"
           style={{
             background: "rgba(10, 18, 42, 0.8)",
             border: "1px solid rgba(43, 127, 255, 0.2)",
@@ -173,7 +175,7 @@ function BookingLink() {
 
         <button
           onClick={handleCopy}
-          className="px-4 py-3 rounded-xl flex items-center gap-2 text-white text-sm transition-all hover:opacity-90"
+          className="px-4 py-2 sm:py-3 rounded-xl flex items-center justify-center gap-2 text-white text-xs sm:text-sm transition-all hover:opacity-90 w-full sm:w-auto"
           style={{
             background:
               "linear-gradient(180deg, rgba(21, 34, 82, 1) 0%, rgba(17, 27, 60, 1) 100%)",
@@ -229,28 +231,28 @@ function AppointmentsTable() {
           <table className="w-full">
             <thead>
               <tr style={{ borderBottom: "1px solid rgba(43, 127, 255, 0.2)" }}>
-                <th className="font-normal px-6 py-4 text-sm text-white text-center">
+                <th className="font-normal px-3 sm:px-6 py-3 sm:py-4 text-xs sm:text-sm text-white text-center whitespace-nowrap">
                   Client Name
                 </th>
-                <th className="font-normal px-6 py-4 text-sm text-white text-center">
+                <th className="font-normal px-3 sm:px-6 py-3 sm:py-4 text-xs sm:text-sm text-white text-center whitespace-nowrap">
                   Client Phone
                 </th>
-                <th className="font-normal px-6 py-4 text-sm text-white text-center">
+                <th className="font-normal px-3 sm:px-6 py-3 sm:py-4 text-xs sm:text-sm text-white text-center whitespace-nowrap">
                   Client mail
                 </th>
-                <th className="font-normal px-6 py-4 text-sm text-white text-center">
+                <th className="font-normal px-3 sm:px-6 py-3 sm:py-4 text-xs sm:text-sm text-white text-center whitespace-nowrap">
                   Device
                 </th>
-                <th className="font-normal px-6 py-4 text-sm text-white text-center">
+                <th className="font-normal px-3 sm:px-6 py-3 sm:py-4 text-xs sm:text-sm text-white text-center whitespace-nowrap">
                   Repair Type
                 </th>
-                <th className="font-normal px-6 py-4 text-sm text-white text-center">
+                <th className="font-normal px-3 sm:px-6 py-3 sm:py-4 text-xs sm:text-sm text-white text-center whitespace-nowrap">
                   Date
                 </th>
-                <th className="font-normal px-6 py-4 text-sm text-white text-center">
+                <th className="font-normal px-3 sm:px-6 py-3 sm:py-4 text-xs sm:text-sm text-white text-center whitespace-nowrap">
                   Slot no
                 </th>
-                <th className="font-normal px-6 py-4 text-sm text-white text-center">
+                <th className="font-normal px-3 sm:px-6 py-3 sm:py-4 text-xs sm:text-sm text-white text-center whitespace-nowrap">
                   Start Time
                 </th>
               </tr>
@@ -266,28 +268,28 @@ function AppointmentsTable() {
                         : "none",
                   }}
                 >
-                  <td className="px-6 py-4 text-sm text-blue-400 text-center">
+                  <td className="px-3 sm:px-6 py-3 sm:py-4 text-xs sm:text-sm text-blue-400 text-center whitespace-nowrap">
                     {appointment.clientName}
                   </td>
-                  <td className="px-6 py-4 text-sm text-slate-300 text-center">
+                  <td className="px-3 sm:px-6 py-3 sm:py-4 text-xs sm:text-sm text-slate-300 text-center whitespace-nowrap">
                     {appointment.clientPhone}
                   </td>
-                  <td className="px-6 py-4 text-sm text-white text-center">
+                  <td className="px-3 sm:px-6 py-3 sm:py-4 text-xs sm:text-sm text-white text-center whitespace-nowrap">
                     {appointment.clientMail}
                   </td>
-                  <td className="px-6 py-4 text-sm text-slate-300 text-center">
+                  <td className="px-3 sm:px-6 py-3 sm:py-4 text-xs sm:text-sm text-slate-300 text-center whitespace-nowrap">
                     {appointment.device}
                   </td>
-                  <td className="px-6 py-4 text-sm text-slate-300 text-center">
+                  <td className="px-3 sm:px-6 py-3 sm:py-4 text-xs sm:text-sm text-slate-300 text-center whitespace-nowrap">
                     {appointment.repairType}
                   </td>
-                  <td className="px-6 py-4 text-sm text-slate-300 text-center">
+                  <td className="px-3 sm:px-6 py-3 sm:py-4 text-xs sm:text-sm text-slate-300 text-center whitespace-nowrap">
                     {appointment.date}
                   </td>
-                  <td className="px-6 py-4 text-sm text-slate-300 text-center">
+                  <td className="px-3 sm:px-6 py-3 sm:py-4 text-xs sm:text-sm text-slate-300 text-center whitespace-nowrap">
                     {appointment.slotNo}
                   </td>
-                  <td className="px-6 py-4 text-sm text-slate-300 text-center">
+                  <td className="px-3 sm:px-6 py-3 sm:py-4 text-xs sm:text-sm text-slate-300 text-center whitespace-nowrap">
                     {appointment.startTime}
                   </td>
                 </tr>
@@ -297,14 +299,14 @@ function AppointmentsTable() {
         </div>
       </motion.div>
 
-      <div className="flex items-center justify-center gap-2 py-4">
+      <div className="flex items-center justify-center gap-1 sm:gap-2 py-3 sm:py-4 flex-wrap">
         <button
           onClick={() => setCurrentPage((prev) => Math.max(1, prev - 1))}
           disabled={currentPage === 1}
-          className="flex items-center gap-1 px-3 py-2 text-sm text-slate-400 hover:text-white transition-colors disabled:opacity-50"
+          className="flex items-center gap-1 px-2 sm:px-3 py-1.5 sm:py-2 text-xs sm:text-sm text-slate-400 hover:text-white transition-colors disabled:opacity-50"
         >
-          <ChevronLeft size={16} />
-          Previous
+          <ChevronLeft size={14} className="sm:w-4 sm:h-4" />
+          <span className="hidden sm:inline">Previous</span>
         </button>
 
         {getPageNumbers().map((page, index) => (
@@ -312,7 +314,7 @@ function AppointmentsTable() {
             key={index}
             onClick={() => typeof page === "number" && setCurrentPage(page)}
             disabled={page === "..."}
-            className={`w-8 h-8 text-sm transition-colors ${
+            className={`w-7 h-7 sm:w-8 sm:h-8 text-xs sm:text-sm transition-colors ${
               page === currentPage
                 ? "bg-[#a7c8fe] text-[#001d6b]"
                 : "text-[#0f62fe]"
@@ -327,10 +329,10 @@ function AppointmentsTable() {
             setCurrentPage((prev) => Math.min(totalPages, prev + 1))
           }
           disabled={currentPage === totalPages}
-          className="flex items-center gap-1 px-3 py-2 text-sm text-blue-400 hover:text-blue-300 transition-colors disabled:opacity-50"
+          className="flex items-center gap-1 px-2 sm:px-3 py-1.5 sm:py-2 text-xs sm:text-sm text-blue-400 hover:text-blue-300 transition-colors disabled:opacity-50"
         >
-          Next
-          <ChevronRight size={16} />
+          <span className="hidden sm:inline">Next</span>
+          <ChevronRight size={14} className="sm:w-4 sm:h-4" />
         </button>
       </div>
     </>
@@ -340,13 +342,13 @@ function AppointmentsTable() {
 function Appointments() {
   return (
     <div
-      className="min-h-screen p-8"
+      className="min-h-screen p-4 sm:p-6 lg:p-8"
       style={{
         background:
           "linear-gradient(137.23deg, rgba(1.89, 5.94, 23.59, 1) -34.38%, rgba(22.25, 36.5, 85.6, 1) 54.595%, rgba(15, 23, 43, 1) 143.569%)",
       }}
     >
-      <div className="space-y-6">
+      <div className="space-y-4 sm:space-y-6">
         <AppointmentStats />
         <BookingLink />
         <AppointmentsTable />
