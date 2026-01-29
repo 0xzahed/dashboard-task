@@ -102,15 +102,15 @@ function Dropdown({ options, value, onChange }) {
     <div className="relative" ref={dropdownRef}>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="px-4 py-2.5 rounded-lg text-sm text-white flex items-center gap-2 min-w-30 justify-between"
+        className="px-3 sm:px-4 py-2 sm:py-2.5 rounded-lg text-xs sm:text-sm text-white flex items-center gap-1.5 sm:gap-2 min-w-24 sm:min-w-30 justify-between"
         style={{
           background: "rgba(17, 27, 60, 0.8)",
         }}
       >
         {value}
         <ChevronDown
-          size={16}
-          className={`transition-transform ${isOpen ? "rotate-180" : ""}`}
+          size={14}
+          className={`sm:w-4 sm:h-4 transition-transform ${isOpen ? "rotate-180" : ""}`}
         />
       </button>
 
@@ -155,13 +155,13 @@ function CallList({ calls, selectedCall, onSelectCall }) {
       }}
     >
       <h3
-        className="text-lg text-white p-4"
+        className="text-base sm:text-lg text-white p-3 sm:p-4"
         style={{ borderBottom: "1px solid rgba(43, 127, 255, 0.2)" }}
       >
         Call List
       </h3>
 
-      <div className="space-y-3">
+      <div className="space-y-2 sm:space-y-3">
         {calls.map((call, index) => (
           <motion.div
             key={call.id}
@@ -169,7 +169,7 @@ function CallList({ calls, selectedCall, onSelectCall }) {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.2, delay: index * 0.05 }}
             onClick={() => onSelectCall && onSelectCall(call)}
-            className="p-4 cursor-pointer"
+            className="p-3 sm:p-4 cursor-pointer"
             style={{
               borderBottom:
                 selectedCall?.id === call.id
@@ -177,26 +177,31 @@ function CallList({ calls, selectedCall, onSelectCall }) {
                   : "3px solid transparent",
             }}
           >
-            <div className="flex items-start justify-between mb-3">
-              <div className="flex items-center gap-3">
+            <div className="flex items-start justify-between mb-2 sm:mb-3">
+              <div className="flex items-center gap-2 sm:gap-3">
                 <div
-                  className="w-10 h-10 rounded-full flex items-center justify-center"
+                  className="w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center flex-shrink-0"
                   style={{
                     background:
                       "linear-gradient(135deg, #10B981 0%, #059669 100%)",
                   }}
                 >
-                  <Phone size={18} className="text-white" />
+                  <Phone
+                    size={16}
+                    className="sm:w-[18px] sm:h-[18px] text-white"
+                  />
                 </div>
-                <div>
-                  <p className="text-white">{call.phoneNumber}</p>
+                <div className="min-w-0">
+                  <p className="text-sm sm:text-base text-white truncate">
+                    {call.phoneNumber}
+                  </p>
                   <p className="text-xs text-slate-400">
                     {call.date} • {call.time}
                   </p>
                 </div>
               </div>
               <span
-                className="px-3 py-1 rounded-full text-xs"
+                className="px-2 sm:px-3 py-0.5 sm:py-1 rounded-full text-xs whitespace-nowrap flex-shrink-0"
                 style={{
                   background: `${call.statusColor}20`,
                   color: call.statusColor,
@@ -207,17 +212,17 @@ function CallList({ calls, selectedCall, onSelectCall }) {
               </span>
             </div>
 
-            <div className="flex items-center gap-4 text-sm">
-              <div className="flex items-center gap-1.5 text-slate-400">
-                <Clock size={14} />
+            <div className="flex flex-wrap items-center gap-2 sm:gap-4 text-xs sm:text-sm">
+              <div className="flex items-center gap-1 sm:gap-1.5 text-slate-400">
+                <Clock size={12} className="sm:w-[14px] sm:h-[14px]" />
                 <span>{call.duration}</span>
               </div>
-              <div className="flex items-center gap-1.5 text-slate-400">
-                <CheckCircle size={14} />
+              <div className="flex items-center gap-1 sm:gap-1.5 text-slate-400">
+                <CheckCircle size={12} className="sm:w-[14px] sm:h-[14px]" />
                 <span>{call.outcome}</span>
               </div>
               <span
-                className="px-2.5 py-0.5 rounded-md text-xs"
+                className="px-2 sm:px-2.5 py-0.5 rounded-md text-xs"
                 style={{
                   background: "rgba(43, 127, 255, 0.15)",
                   color: "#60A5FA",
@@ -284,14 +289,14 @@ function CallDetails({ call }) {
       }}
     >
       <h3
-        className="text-lg text-white p-4"
+        className="text-base sm:text-lg text-white p-3 sm:p-4"
         style={{ borderBottom: "1px solid rgba(43, 127, 255, 0.2)" }}
       >
         Call Details
       </h3>
 
-      <div className="p-4 space-y-6">
-        <div className="grid grid-cols-2 gap-4">
+      <div className="p-3 sm:p-4 space-y-4 sm:space-y-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
           <div>
             <p className="text-xs text-slate-400 mb-1">Phone Number</p>
             <p className="text-white">{call.phoneNumber}</p>
@@ -302,7 +307,7 @@ function CallDetails({ call }) {
           </div>
         </div>
 
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
           <div>
             <p className="text-xs text-slate-400 mb-1">Date & Time</p>
             <p className="text-white ">
@@ -335,7 +340,7 @@ function CallDetails({ call }) {
         </div>
 
         <button
-          className="w-full py-3 flex items-center justify-center gap-2 text-[#c27aff] transition-all hover:opacity-90"
+          className="w-full py-2.5 sm:py-3 flex items-center justify-center gap-2 text-xs sm:text-sm text-[#c27aff] transition-all hover:opacity-90"
           style={{
             background:
               "linear-gradient(90deg, rgba(172.87, 70.37, 255, 0.2), rgba(246.28, 50.53, 154.1, 0.2) 100%)",
@@ -343,18 +348,23 @@ function CallDetails({ call }) {
             borderRadius: "14px",
           }}
         >
-          <PlayCircle size={18} />
+          <PlayCircle size={16} className="sm:w-[18px] sm:h-[18px]" />
           Play Audio Recording
         </button>
 
         <div>
-          <div className="flex items-center gap-2 mb-4">
-            <FileText size={18} className="text-slate-400" />
-            <p className="text-white ">Conversation Transcript</p>
+          <div className="flex items-center gap-2 mb-3 sm:mb-4">
+            <FileText
+              size={16}
+              className="sm:w-[18px] sm:h-[18px] text-slate-400"
+            />
+            <p className="text-sm sm:text-base text-white">
+              Conversation Transcript
+            </p>
           </div>
 
           <div
-            className="space-y-4 p-4 rounded-xl"
+            className="space-y-3 sm:space-y-4 p-3 sm:p-4 rounded-xl"
             style={{
               background: "rgba(10, 18, 42, 0.5)",
             }}
@@ -388,24 +398,24 @@ function CallLogs() {
 
   return (
     <div
-      className="min-h-screen p-8"
+      className="min-h-screen p-4 sm:p-6 lg:p-8 pt-20 lg:pt-8"
       style={{
         background:
           "linear-gradient(137.23deg, rgba(1.89, 5.94, 23.59, 1) -34.38%, rgba(22.25, 36.5, 85.6, 1) 54.595%, rgba(15, 23, 43, 1) 143.569%)",
       }}
     >
-      <div className="flex flex-col lg:flex-row items-stretch lg:items-center gap-6 mb-6">
+      <div className="flex flex-col lg:flex-row items-stretch lg:items-center gap-4 sm:gap-6 mb-4 sm:mb-6">
         <div className="lg:w-1/2 relative">
           <Search
             size={18}
-            className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400"
+            className="absolute left-3 sm:left-4 top-1/2 -translate-y-1/2 text-slate-400"
           />
           <input
             type="text"
             placeholder="Search by phone number, issue type..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pl-11 pr-4 py-2.5 rounded-lg text-sm text-white placeholder-slate-500 outline-none"
+            className="w-full pl-10 sm:pl-11 pr-3 sm:pr-4 py-2 sm:py-2.5 rounded-lg text-xs sm:text-sm text-white placeholder-slate-500 outline-none"
             style={{
               background: "rgba(15, 23, 43, 0.5)",
               border: "1px solid rgba(43, 127, 255, 0.2)",
@@ -413,7 +423,7 @@ function CallLogs() {
           />
         </div>
 
-        <div className="lg:w-1/2 flex flex-wrap gap-3 justify-end">
+        <div className="lg:w-1/2 flex flex-wrap gap-2 sm:gap-3 justify-start lg:justify-end">
           <Dropdown
             options={typeOptions}
             value={selectedType}
@@ -432,7 +442,7 @@ function CallLogs() {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
         <CallList
           calls={callsData}
           selectedCall={selectedCall}

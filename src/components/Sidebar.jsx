@@ -2,9 +2,13 @@ import { NavLink } from "react-router-dom";
 import { Home, Phone, Calendar, Settings, Zap, LogOut } from "lucide-react";
 import "./Sidebar.css";
 
-const Sidebar = () => {
+const Sidebar = ({ isOpen, onClose }) => {
   return (
-    <div className="w-[250px] h-screen bg-[#0f1c3f] flex flex-col fixed left-0 top-0 py-5 sidebar-shadow">
+    <div
+      className={`w-[250px] h-screen bg-[#0f1c3f] flex flex-col fixed left-0 top-0 py-5 sidebar-shadow z-40 transition-transform duration-300 lg:translate-x-0 ${
+        isOpen ? "translate-x-0" : "-translate-x-full"
+      }`}
+    >
       <div className="flex-1 flex flex-col">
         {/* Logo */}
         <div className="flex justify-center items-center mb-10">
@@ -24,6 +28,7 @@ const Sidebar = () => {
         <nav className="flex flex-col gap-2 px-3">
           <NavLink
             to="/"
+            onClick={onClose}
             className={({ isActive }) =>
               `flex items-center gap-3 px-4 py-3 rounded-lg text-[15px] font-medium transition-all duration-300 ${
                 isActive
@@ -38,6 +43,7 @@ const Sidebar = () => {
 
           <NavLink
             to="/call-logs"
+            onClick={onClose}
             className={({ isActive }) =>
               `flex items-center gap-3 px-4 py-3 rounded-lg text-[15px] font-medium transition-all duration-300 ${
                 isActive
@@ -52,6 +58,7 @@ const Sidebar = () => {
 
           <NavLink
             to="/appointments"
+            onClick={onClose}
             className={({ isActive }) =>
               `flex items-center gap-3 px-4 py-3 rounded-lg text-[15px] font-medium transition-all duration-300 ${
                 isActive
@@ -66,6 +73,7 @@ const Sidebar = () => {
 
           <NavLink
             to="/settings"
+            onClick={onClose}
             className={({ isActive }) =>
               `flex items-center gap-3 px-4 py-3 rounded-lg text-[15px] font-medium transition-all duration-300 ${
                 isActive
