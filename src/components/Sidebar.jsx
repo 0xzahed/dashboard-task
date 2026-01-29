@@ -8,7 +8,14 @@ const Sidebar = () => {
       <div className="flex-1 flex flex-col">
         {/* Logo */}
         <div className="flex justify-center items-center mb-10">
-          <div className="w-[50px] h-[50px] bg-gradient-to-br from-[#00d4ff] to-[#00b8d4] rounded-xl flex items-center justify-center text-[#0f1c3f]">
+          <div
+            className="w-[50px] h-[50px] flex items-center justify-center text-[#0f1c3f]"
+            style={{
+              borderRadius: "14px",
+              background:
+                "linear-gradient(180deg, rgba(0, 255, 136, 1), rgba(0, 212, 255, 1) 100%)",
+            }}
+          >
             <Zap size={28} />
           </div>
         </div>
